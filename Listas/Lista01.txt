@@ -1,0 +1,110 @@
+01 - Um algoritmo é uma sequência de ações, finitas, bem definidas, que resolve em tempo finito um problema.
+--------------------------------------
+02 - Finitude: deve ter um fim.
+     Definitude: não deve abrir espaço para dupla interpretação.
+     Entrada: Deve ser capaz de receber dados externos.
+     Saída: Deve ser capaz de gerar informações para o mundo externo ao algoritmo.
+     Eficácia: Deve ser eficaz para alcançar o resultado desejado em tempo finito.
+--------------------------------------
+03 - Podemos representar um algoritmo de forma textual, por meio de fluxograma ou de pseudo-código.
+--------------------------------------
+04 - A forma mais adequada para a representação de algoritmos com o intuito de desenvolver programas é o pseudo-código pois sua estrutura facilita a passagem de informações para qualquer linguagem desejada, além de não ser ambíguo e definir os dados.
+--------------------------------------
+05 - Relação entre vários algoritmos para determinar qual deles é melhor a partir da análise dos resultados obtidos e dos recursos empregados. Sua eficiência pode ser definida com base em atributos espaciais (memória utilizada) e temporais (tempo de processamento).
+--------------------------------------
+06 - a)
+#include <stdio.h>
+#include <time.h>
+int primo (long long n) {
+    int qtd_div = 1, i = 2;
+    while (i<=n)
+    {
+        if (n%i == 0){qtd_div++;}
+        i++;
+    }
+    if (qtd_div <= 2) return 1;
+    else return 0;
+}
+int main () {
+    clock_t inicio, fim;
+    long long n; scanf("%lld", &n);
+    inicio = clock();
+    int p = primo(n);
+    fim = clock();
+    double tempo = ((double) (fim-inicio)) / (CLOCKS_PER_SEC/1000.0);
+    printf("%lld ",n);
+    if (p) printf("eh primo");
+    else printf("eh composto");
+    printf(" (%.4lfms)\n", tempo);
+    return 0;
+}
+
+b) N consegui fazer o clock, por isso não fiz a tabela.
+c) Como não fiz a tabela, não explicarei o resultado. Uma possível melhoria no código seria tratar os casos de números pares, já que se um número é par, ele não é primo. Assim seria possível, talvez, cortar o tempo pela metade.
+--------------------------------------
+07 - a) Tratando-se dos inteiros positivos, zero incluso, o T(A) sobressai-se ao T(B) entre o valor 0 ao 54. A partir do 55, o T(B) já se torna mais eficiente em uma análise de eficiência temporal.
+     b) Não pude desenhar o gráfico aqui, porém o T(A) possui um gráfico semelhante ao de uma função afim, enquanto o T(B) possui o gráfico de uma função quadrática.
+--------------------------------------
+08 - int menor () {
+         int n;
+         scanf("%d", &n);
+         int array[n];
+         for (int i=0; i<n; i++) scanf("%d", &array[i]);
+         int menor = array[0];
+         for (int i=0; i<n-1; i++) if (array[i] > array[i+1]) menor = array[i+1];
+         printf("%d", menor);
+     }
+     A equação do tempo de execução do algoritmo é O(n).
+--------------------------------------
+09 - int presenca () {
+         int n, v;
+         scanf("%d %d", &n, &v);
+         int array[n];
+         int cond = 0;
+             for (int i=0; i<n; i++) {
+                 scanf("%d", &array[i]);
+             }
+
+             for (int i=0; i<n; i++) {
+                 if (v == array[i]) {
+                     cond = 1;
+                     break;
+                 }
+             }
+
+         if (cond) printf("O valor esta no array!");
+         else printf("O valor nao esta no array!");
+     }
+--------------------------------------
+10 - Algo a | 2 = 4.5 | 4 = 10 | 6 = 20 | 8 = 48 | 10 = 148 | 12 = 536 | 14 = 2 076 | 16 = 8 224 | 18 = 32 804 | 20 = 131 112 |
+     Algo b | 2 = 70 | 4 = 90 | 6 = 100 | 8 = 130 | 10 = 150 | 12 = 170 | 14 = 190 | 16 = 200 | 18 = 230 | 20 = 250 |
+     Algo c | 2 = 46 | 4 = 146 | 6 = 310 | 8 = 538 | 10 = 830 | 12 = 1 186 | 14 = 1 606 | 16 = 2 638 | 18 = 2 638 | 20 = 3 250 |
+     Algo d | 2 = 120 | 4 = 140 | 6 = 150 | 8 = 160 | 10 = 166 | 12 = 172 | 14 = 176 | 16 =  | 18 = 180 | 20 = 186 |
+
+Ordem do melhor para o pior: D > B > C > A
+Não fiz o gráfico.
+--------------------------------------
+11 - A notação utilizada deve ser O(2ⁿ). Utilizando o descarte dos termos de baixa ordem do polinômio n² + 2ⁿ⁺² notamos que o termo de mais baixa ordem entre os dois únicos termos é o n². Então, utilizamos o outro para definir a taxa de crescimento.
+--------------------------------------
+12 - Algoritmos ordenados a partir da sua complexidadade:
+     nlog2n > log2n > 2ⁿ > n³ > n² > n
+--------------------------------------
+13 - a) O(2ⁿ/8)
+     b) O(10n)
+     c) O(n²)
+     d) O(20 log2n)
+     e) O(2ⁿ)
+     f) O(3n log2n)
+     g) O(log2n)
+     h) O(50n³)
+--------------------------------------
+14 - Não consegui fazer
+--------------------------------------
+15 - Não consegui fazer
+--------------------------------------
+16 - a) O(n)
+     b) O(n)
+     c) O(n²)
+     d) O(n)
+     e) O(n)
+OBS: Só fiz a complexidade pois ainda não aprendi a calcular o tempo.
